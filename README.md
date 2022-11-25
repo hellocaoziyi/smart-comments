@@ -4,7 +4,7 @@ This is an extension that helps with annotations, making the code easier to read
 
 ## Features
 
-\!\[feature X\]\(images/feature.png\)
+![feature X](images/feature.png)
 
 ## Requirements
 Dependencies:
