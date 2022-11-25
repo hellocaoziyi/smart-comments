@@ -1,24 +1,52 @@
 {
   "name": "smart-comments",
   "displayName": "Smart Comments",
-  "icon": "icon.png",
-  "description": "",
+  "description": "This extension helps with annotations, making the code easier to read",
   "version": "0.0.1",
+  "icon": "images/icon.png",
+  "publisher": "Ziyi Cao",
+  "author": "Ziyi Cao",
+  "private": true,
   "engines": {
     "vscode": "^1.73.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellocaoziyi/smart-comments.git"
+  },
   "categories": [
-    "Other"
+    "Formatters"
   ],
   "activationEvents": [
-    "onCommand:smart-comments.helloWorld"
+    "onCommand:smart-comments.helloWorld",
+    "onStartupFinished",
+    "onCommand:extension.smartHeader"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Smart Comments Configuration",
+      "properties": {
+        "smartHeader": {
+          "type": "object",
+          "default": {},
+          "description": ""
+        }
+      }
+    },
     "commands": [
       {
-        "command": "smart-comments.helloWorld",
-        "title": "Hello World"
+        "command": "extension.smartHeader",
+        "title": "Smart Header"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.smartHeader",
+        "key": "ctrl+alt+i",
+        "mac": "ctrl+cmd+i",
+        "when": "editorTextFocus"
       }
     ]
   },
@@ -29,6 +57,10 @@
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/vscode": "^1.73.0",

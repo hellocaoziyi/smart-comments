@@ -1,6 +1,8 @@
-# smart-comments README
+# Smart Comments
 
-This is the README for your extension "smart-comments". After writing up a brief description, we recommend including the following sections.
+This is an extension that helps with annotations, making the code easier to read.
+
+`Ctrl`-`Shift`-`I`
 
 ## Features
 
