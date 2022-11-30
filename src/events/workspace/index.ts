@@ -38,11 +38,16 @@ export const onDidSaveTextDocument = (document: TextDocument) => {
   const modifier = modifyEntity.modifier;
 
   const length = getConfigOptionCount(header);
-
+  if (length > document.lineCount) {
+    // Fixed line index out of document range
+    return;
+  }
+  
   let mofidyTimeRange = new Range(new Position(0, 0), new Position(0, 0));
   let modifierRange = new Range(new Position(0, 0), new Position(0, 0));
-  const modifyTimeStartsWith =  modifyEntity.modifyTime.matchPrefix//` ${format.middleWith} ${format.headerPrefix} ${modifyTime.key}:`;
-  const modifierStartsWith = modifyEntity.modifier.matchPrefix //` ${format.middleWith} ${format.headerPrefix} ${modifier.key}:`;
+  const modifyTimeStartsWith = modifyEntity.modifyTime.matchPrefix;
+  const modifierStartsWith = modifyEntity.modifier.matchPrefix;
+
   for (let index = 0; index < length; index++) {
     // Get line text
     const linetAt = document.lineAt(index);
