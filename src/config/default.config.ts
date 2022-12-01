@@ -6,21 +6,20 @@ const defaultConfig = {
       headerPrefix: '@',
     },
     header: {
-      'Author': 'Your name',
-      'Create Time': {
+      'author': 'Your name',
+      'createTime': {
         type: 'createTime',
         format: 'YYYY-MM-DD HH:mm:ss',
       },
-      'Modified by': {
+      'modifiedBy': {
         type: 'modifier',
         value: 'Your name',
       },
-      'Modified time': {
+      'modifiedTime': {
         type: 'modifyTime',
         format: 'YYYY-MM-DD HH:mm:ss',
       },
-      'Company': 'Radar Resource Group, UESTC',
-      'Description': '',
+      'description': '',
     },
   };
   
